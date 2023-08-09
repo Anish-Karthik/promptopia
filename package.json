@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
+    "bcrypt": "^5.1.0",
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.4.2",
     "next": "13.4.13",
+    "next-auth": "^4.22.5",
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
