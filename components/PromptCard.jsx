@@ -4,10 +4,12 @@ import React from 'react'
 import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import { usePathname, useRouter } from 'next/navigation'
-import { set } from 'mongoose'
 
 const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
   const [copied, setCopied] = React.useState("")
+  const { data: session } = useSession()
+  const router = useRouter()
+  const pathname = usePathname()
 
   const handleCopy = () => {
     setCopied(post.prompt)
@@ -63,6 +65,16 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
           </span>
         ))}
       </p>
+      {session?.user.id === post.creator._id && pathname === '/profile' &&(
+        <div className='flex justify-end items-center gap-5 mt-5  '>
+          <p className='text-sm font-inter green_gradient  cursor-pointer' onClick={handleEdit}>
+            Edit
+          </p>
+          <p className='text-sm font-inter orange_gradient cursor-pointer' onClick={handleDelete}>
+            delete
+          </p>
+        </div>
+      )}
     </div>
   )
 }
