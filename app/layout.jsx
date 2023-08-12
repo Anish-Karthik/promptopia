@@ -6,11 +6,15 @@ import Provider from '@components/Provider'
 export const metadata = {
   title: "Promptopia",
   description: "A prompt generator for writers",
+  icon: "/assets/images/logo.svg",
 }
 
 const RootLayout = ({ children }) => {
   return (
     <html lang='en'>
+      <head>
+        <link rel="icon" href="/assets/images/logo.svg" />
+      </head>
       <body>
         
         <Provider>

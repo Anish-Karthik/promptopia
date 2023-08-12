@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.env
 
 # testing
 /coverage
@@ -27,7 +28,7 @@ yarn-error.log*
 # local env files
 .env*.local
 google_client_secret
-.env
+
 
 # vercel
 .vercel
