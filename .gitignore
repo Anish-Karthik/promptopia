@@ -1,10 +1,11 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+.env# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
 .env
+google_client_secret.json
 
 # testing
 /coverage
