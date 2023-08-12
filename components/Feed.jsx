@@ -6,20 +6,19 @@ const Feed = () => {
   const [searchText, setSearchText] = React.useState('')
   const [posts, setPosts] = React.useState([])
   const handleSearchChange = async (e) => {
+    setSearchText(e.target.value)    
   }
   React.useEffect(() => {
     const fetchPromptData = async () => {
       try {
         const res = await fetch('/api/prompt')
         const data = await res.json()
-        console.log("data",data)
         setPosts(data)
       } catch (error) { 
         console.log(error)
       }
     }
     fetchPromptData()
-    console.log("useEffect")
   }, [])
   return (
     <section className='feed'>

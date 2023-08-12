@@ -9,14 +9,10 @@ const MyProfile = () => {
   const { data: session } = useSession()
   const [posts, setPosts] = React.useState([])
   const router = useRouter()
-  console.log("session",session?.user?.id)
   const fetchPromptData = async () => {
     try {
-      console.log("fetching", session.user.id)
-
       const res = await fetch(`/api/users/${session.user.id}/posts`)
       const data = await res.json()
-      console.log("data",data)
       setPosts(data)
     } catch (error) {
       console.log(error)

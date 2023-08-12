@@ -44,9 +44,8 @@ const EditPrompt = () => {
           tag: post.tag,
         })
       })
-      const json = await res.json()
       if (!res.ok) throw Error(json.message)
-      alert('Prompt updated successfully')
+
       router.push('/')
     } catch (e) {
       console.log(e)

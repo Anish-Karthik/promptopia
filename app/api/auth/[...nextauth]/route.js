@@ -13,15 +13,12 @@ const handler =  NextAuth({
   callbacks: {
     async session({ session }) {
       const user = await User.findOne({ email: session.user.email });
-      console.log(user);
-      console.log(session);
       session.user.id = user._id;
       return session;
     },
     async signIn({ profile }) {
       try {
         await connectToDatabase();
-        console.log(profile,"*******************************");
         // check if user exists in database
         if(await User.findOne({ email: profile.email })) {
           return true;
