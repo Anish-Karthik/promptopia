@@ -4,14 +4,22 @@ import React from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Profile from '@components/Profile'
+import { useSearchParams, useParams } from 'next/navigation'
 
 const MyProfile = () => {
   const { data: session } = useSession()
   const [posts, setPosts] = React.useState([])
+
   const router = useRouter()
-  const fetchPromptData = async () => {
+  const searchParams = useSearchParams()
+
+  const params = useParams()
+  const name = searchParams.get('name')
+
+
+  const fetchPromptData = async (userId) => {
     try {
-      const res = await fetch(`/api/users/${session.user.id}/posts`)
+      const res = await fetch(`/api/users/${userId}/posts`)
       const data = await res.json()
       setPosts(data)
     } catch (error) {
@@ -19,9 +27,7 @@ const MyProfile = () => {
     }
   }
   React.useEffect(() => {
-    if(session?.user.id ){
-      fetchPromptData()
-    }
+    fetchPromptData(params.id);
   }, [session])
 
   const handleEdit = (post) => {
@@ -39,15 +45,26 @@ const MyProfile = () => {
       throw Error(e.message)
     }
   }
-  return (
-    <Profile 
-      name={session?.user.name}
-      desc="Welcome to your profile page!"	
-      data={posts}
-      handleEdit={handleEdit}
-      handleDelete={handleDelete}
-    />
-  )
+  if(session?.user.id == params.id) {
+    return (
+      <Profile 
+        name="My"
+        desc="Welcome to your profile page!"	
+        data={posts}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
+      />
+    )
+  } else {
+    return (
+      <Profile 
+        name={name}
+        desc={`Welcome to ${name} profile page!`}	
+        data={posts}
+      />
+    )
+  }
+
 }
 
 export default MyProfile
