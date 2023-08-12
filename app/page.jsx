@@ -1,4 +1,6 @@
+"use client"
 import React from 'react'
+import Feed from '@components/Feed'
 
 const Home = () => {
   return (
@@ -11,7 +13,7 @@ const Home = () => {
         Promptopia is an open-source prompt generator for writers. It uses GPT-3 to generate prompts based on a given keyword.
       </p>
 
-      {/* Feed */}
+      <Feed />
     </section>
   )
 }
