@@ -4,13 +4,14 @@ import Prompt from "@models/prompt";
 
 export const POST = async (req) => {
   const { prompt, tag, userId } = await req.json();
-  console.log("prompt", prompt);
-  console.log("tag", tag);
-  console.log("userId", userId);
+  console.log("*******************************",prompt, tag, userId);
   try{
     await connectToDatabase();
-    const newPrompt = await Prompt.create({ creator: userId, prompt, tag });
-    newPrompt.save();
+    const newPrompt = await Prompt.create({ 
+      creator: userId, prompt, tag
+    });
+    await newPrompt.save();
+    console.log("*******************************",newPrompt);
     return new Response(JSON.stringify(newPrompt), {
       status: 201
     });

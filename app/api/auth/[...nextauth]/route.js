@@ -15,13 +15,13 @@ const handler =  NextAuth({
       const user = await User.findOne({ email: session.user.email });
       console.log(user);
       console.log(session);
-      session.user.id = user._id.toString();
+      session.user.id = user._id;
       return session;
     },
     async signIn({ profile }) {
       try {
         await connectToDatabase();
-
+        console.log(profile,"*******************************");
         // check if user exists in database
         if(await User.findOne({ email: profile.email })) {
           return true;
@@ -30,7 +30,7 @@ const handler =  NextAuth({
         await User.create({
           email: profile.email,
           username: profile.name.replace(" ", "").toLowerCase(),
-          image: profile.image,
+          image: profile.picture || "https://res.cloudinary.com/dq7l8216n/image/upload/v1622711879/nextjs-mongodb-cloudinary/placeholder-image.jpg",
         });
 
         return true;
