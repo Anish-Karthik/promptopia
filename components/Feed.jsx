@@ -5,7 +5,7 @@ import PromptCard from './PromptCard'
 const Feed = () => {
   const [searchText, setSearchText] = React.useState('')
   const [posts, setPosts] = React.useState([])
-  const handleSearchChange = async (e) => {
+  const handleSearchChange =  (e) => {
     setSearchText(e.target.value)    
   }
   React.useEffect(() => {
