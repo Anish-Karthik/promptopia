@@ -16,7 +16,6 @@ const Feed = () => {
         setPosts(data)
       } catch (error) { 
         console.log(error)
-        // alert('Failed to fetch prompts')
       }
     }
     fetchPromptData()

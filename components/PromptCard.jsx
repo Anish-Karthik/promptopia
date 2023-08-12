@@ -19,7 +19,7 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
   return (
     <div className='prompt_card'>
       <div className='flex justify-between items-start gap-5'>
-        <div className='flex-1 flex justify-start items-center gap-3 cursor-pointer'>
+        <div className='flex-1 flex justify-start items-center gap-3 cursor-pointer' onClick={() => {router.push('/profile')}}>
           <Image
             src={post.creator.image}
             alt="Profile Picture"
@@ -59,7 +59,7 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
               className=' cursor-pointer'
               onClick={() => handleTagClick && handleTagClick(tag)}
             >
-              {tag}
+              {tag[0] !== "#" && "#"}{tag}
             </span>
           {" "}
           </span>

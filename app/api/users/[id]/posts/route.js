@@ -1,6 +1,5 @@
 import { connectToDatabase } from "@utils/database";
 import Prompt from "@models/prompt";
-import mongoose from "mongoose";
 
 export const GET = async (req, {params}) => {
   console.log("*********************************inside user Route**********************************");
