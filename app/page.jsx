@@ -10,7 +10,7 @@ const Home = () => {
         <span className='orange_gradient text-center' >AI-Powered Prompts</span>
       </h1>
       <p className='desc text-center'>
-        Promptopia is an open-source prompt generator for writers. It uses GPT-3 to generate prompts based on a given keyword.
+        Promptopia is a community of writers who share and discover AI-generated prompts. Write your killer prompts and share them with the world!
       </p>
 
       <Feed />
