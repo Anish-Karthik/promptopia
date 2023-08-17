@@ -3,7 +3,8 @@ deployed Link: <a href="https://promptopia.anish-karthik.vercel.app/"> https://p
 ## <h1>Basic Features</h1>
 
 ## Home Page and Feed
-![image](https://github.com/Anish-Karthik/promptopia/assets/111771214/e9a31c9a-4ca4-4b58-b90d-3ac4b3cb77d0)
+![image](https://github.com/Anish-Karthik/promptopia/assets/111771214/6aaee825-9711-4f29-bb71-edf34f4490c1)
+
 
 ## Profile when a user visits his profile
 ![image](https://github.com/Anish-Karthik/promptopia/assets/111771214/e6b2f8ff-5c67-4f78-9e3d-b9e96e54709b)
